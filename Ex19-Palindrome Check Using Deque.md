@@ -1,27 +1,52 @@
-# Ex19 Palindrome Check Using Deque
-## DATE:
+## Ex19 — Palindrome Check Using Deque
+
 ## AIM:
-To design a program that checks whether a given message is a palindrome by removing all non-alphanumeric characters, converting all characters to lowercase, and using a deque data structure for comparison.
+To design a program that checks whether a given message is a palindrome using a deque after removing non-alphanumeric characters and converting to lowercase.
 
 ## Algorithm
-1. 
-2. 
-3. 
-4.  
-5.   
 
-## Program:
+Remove all non-alphanumeric characters.
+
+Convert text to lowercase.
+
+Insert characters into a deque.
+
+Compare front and rear characters until deque is empty.
+
+If all match → palindrome, else not.
+
+## Program
 ```
-/*
-Program to checks whether a given message is a palindrome by removing all non-alphanumeric characters.
-Developed by: 
-RegisterNumber:  
-*/
+Program to check whether a message is a palindrome using Deque
+Developed by: Naresh P.S.
+RegisterNumber: 212223040127
+Date: 15-11-2025
+
+import java.util.*;
+
+public class PalindromeDeque {
+    public static boolean isPalindrome(String s) {
+        s = s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+
+        Deque<Character> deque = new LinkedList<>();
+        for (char c : s.toCharArray()) deque.add(c);
+
+        while (deque.size() > 1) {
+            if (deque.removeFirst() != deque.removeLast()) return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String msg = "A man, a plan, a canal: Panama";
+        System.out.println("Is Palindrome: " + isPalindrome(msg));
+    }
+}
 ```
 
-## Output:
+Output
+Is Palindrome: true
 
+Result
 
-
-## Result:
-The program successfully removes all non-alphanumeric characters, converts the text to lowercase, and uses a deque to efficiently compare characters from both ends. Hence, it determines whether the string is a palindrome.
+The program successfully processes the string and determines whether it is a palindrome using a deque.
